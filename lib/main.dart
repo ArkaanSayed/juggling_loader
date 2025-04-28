@@ -54,6 +54,12 @@ class _DotLoadingAnimationState extends State<DotLoadingAnimation>
     });
   }
 
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   Offset _getArcOffset(int from, int to, bool upward, double t) {
     final startX = from * spacing;
     final endX = to * spacing;
@@ -126,11 +132,5 @@ class _DotLoadingAnimationState extends State<DotLoadingAnimation>
         ),
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
   }
 }
