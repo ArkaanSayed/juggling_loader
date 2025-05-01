@@ -33,7 +33,7 @@ class _DotLoadingAnimationState extends State<DotLoadingAnimation>
   late AnimationController _controller;
   late Animation<double> _animation;
 
-  final double spacing = 27.0;
+  final double spacing = 23.0;
   final double dotSize = 13.0;
 
   @override
@@ -69,7 +69,7 @@ class _DotLoadingAnimationState extends State<DotLoadingAnimation>
 
     // For odd dots
     if (from % 2 != 0) {
-      arcHeight = 30.0;
+      arcHeight = 40.0;
     }
 
     // Use a sine wave for arc effect
@@ -83,8 +83,27 @@ class _DotLoadingAnimationState extends State<DotLoadingAnimation>
       animation: _animation,
       builder: (_, child) {
         final offset = _getArcOffset(from, to, upward, _animation.value);
+        // To check if the dot is going up or down
+        bool up = true;
+        if (from % 2 != 0) {
+          up = false; // For odd dots it is going down
+        }
 
-        return Positioned(left: offset.dx, top: 100 + offset.dy, child: child!);
+        double t = sin(pi * _controller.value);
+
+        // Upward arc dot
+        double scaleUp = lerpDouble(1.0, 1.8, t)!;
+
+        // Downward arc dot
+        double scaleDown = lerpDouble(1.0, 1.4, t)!;
+        return Positioned(
+          left: offset.dx,
+          top: 100 + offset.dy,
+          child: Transform.scale(
+            scale: up ? scaleUp : scaleDown,
+            child: child!,
+          ),
+        );
       },
       child: Container(
         width: dotSize,
