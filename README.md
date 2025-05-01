@@ -1,15 +1,14 @@
 # loading_animator
 
-A new Flutter project.
+Hey All !! I just built this project in an hour, wanted to replicate a loader I had seen in one of the apps that I was using.
+I just finisehd learning flutter animations and wanted to implment whatever I have learnt.
 
-## Getting Started
+## A demo video of how it looks
 
-This project is a starting point for a Flutter application.
+![loading_balls](https://github.com/user-attachments/assets/b7863bdb-2825-462f-9699-7db0face595c)
 
-A few resources to get you started if this is your first Flutter project:
+## Feel free to contribute just create a fork and send a PR !!
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
